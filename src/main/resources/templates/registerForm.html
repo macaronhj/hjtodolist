@@ -19,16 +19,13 @@
 <body>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
 <br>
-<div>
     <div class="bd-example">
         <form class="row g-3" name="register" action="/checkList/registerRequest" method="post">
-            <div class="col-md-4" th:align="center">
                 <label for="validationServer01" class="form-label">TODO</label>
                 <input th:align="center" type="text" class="form-control is-valid" name="todo" id="validationServer01" placeholder="todo" required>
                 <div class="valid-feedback">
                     Please wirte ToDoList.
                 </div>
-            </div>
 
             <div class="b-example-divider"></div>
 
@@ -110,12 +107,14 @@
                     </div>
                 </div>
             </div>
+            <div class="valid-feedback" th:align="center">
+                Please select date.
+            </div>
             <div class="col-12">
                 <button class="btn btn-outline-success" type="button" onclick="doRegister();">Register</button>
             </div>
         </form>
     </div>
-</div>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
 </body>
