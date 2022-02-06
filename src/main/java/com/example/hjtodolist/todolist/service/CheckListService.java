@@ -27,4 +27,13 @@ public class CheckListService {
         }
         return checkListMapper.findAll();
     }
+    public List<CheckListDto> requestDelete(Long seq){
+        int result = checkListMapper.requestDelete(seq);
+        String registerResult = "상품 삭제 실패";
+        if(result > 0 ){
+            registerResult = "상품 삭제 성공";
+            log.info("[BoarderService -> delete 상품 삭제 요청 성공]");
+        }
+        return checkListMapper.findAll();
+    }
 }

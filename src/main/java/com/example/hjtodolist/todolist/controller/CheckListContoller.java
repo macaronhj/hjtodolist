@@ -43,4 +43,18 @@ public class CheckListContoller {
         mv.setViewName("/list.html");
         return mv;
     }
+    @GetMapping(value = "/request/page")
+    public ModelAndView requestmdPage(ModelAndView mv){
+        log.info("CheckListController > requestPage 수정 삭제 페이지 이동 중 요청");
+        mv.addObject("todoList", checkListService.findAll());
+        mv.setViewName("requestmdPage.html");
+        return mv;
+    }
+    @PostMapping(value = "/delete")
+    public ModelAndView requestDelete(ModelAndView mv, Long seq){
+        log.info("[BoarderController -> requestDelete 화장품 삭제 요청함]");
+        mv.addObject("cosList", checkListService.requestDelete(seq));
+        mv.setViewName("redirect:/checkList/list");
+        return mv;
+    }
 }
