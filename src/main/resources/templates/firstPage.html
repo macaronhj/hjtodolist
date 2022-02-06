@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Request Page</title>
+    <style>
+        table {width:50%}
+        table, th, td {border:4px solid black;
+            border-collapse: collapse; padding:10px; }
+        body{background-color: MediumSeaGreen; pacity: 0.3;}
+    </style>
+</head>
+<body>
+<center>
+    <h1 th:align="center">[Heejin's TODOLIST]</h1>
+    <br>
+    <h3>ToDoList 등록 요청</h3>
+    <form name="frm" action="/checkList/createList" method="post">
+        <p>
+        <table>
+            <tr>
+                <td><label for="name" class="sr-only">TODO</label></td>
+                <td><input type="text" id="name" name="todo" class="form-control" placeholder="TODO" required autofocus></td>
+            </tr>
+            <tr>
+                <td><label for="count" class="sr-only">DEADLINE</label></td>
+                <td><input type="text" id="count" name="deadline" class="form-control" placeholder="DEADLINE" required></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><button name="btn" type="submit" id="btnId">등록 버튼</button></td>
+            </tr>
+        </table>
+        </p>
+    </form>
+    <h3>ToDoList 전체 출력을 원하시면 아래 버튼을 눌러주세요~</h3>
+    <form name="frm" action="/findAll" method="get">
+        <button name="btnFinAll" type="submit" id="btnFinAll"><img src="C:\heejin\img\start.png"></button>
+    </form>
+    <br>
+    <h3>화장품 금액별 리스트 출력을 원하시면 아래 버튼을 눌러주세요~</h3>
+    <form name="frm" action="/ListBySale" method="get">
+        <button name="btnFinAll" type="submit" id="btnFinsale"><img src="C:\heejin\img\start.png"></button>
+    </form>
+</center>
+</body>
+</html>
