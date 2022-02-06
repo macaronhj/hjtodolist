@@ -10,8 +10,8 @@
   <link href="/css/cheatsheet.css" rel="stylesheet">
 </head>
 <script>
-  function goBoarderRegister(){
-    location.href = "/boarder/register/page";
+  function goRequestPage(){
+    location.href = "/checkList/register/page";
   }
   function deleteBoarder(seq){
     const requestDelete = document.requestDelete;
@@ -19,11 +19,9 @@
     requestDelete.submit();
   }
   function updateBoarder(seq){
-    location.href = "/boarder/update/page?seq="+seq;
+    location.href = "/checkList/update/page?seq="+seq;
   }
-  function goBoardBySale(){
-    location.href = "/boarder/boardBySale";
-  }
+
 </script>
 <body>
 <form name="requestDelete" method="post" action="/checkList/delete">
@@ -50,10 +48,9 @@
       </td>
     </tr>
   </table>
-  <button class="btn btn-success" type="button" onclick="goBoarderRegister();">상품 등록</button>
+  <button class="btn btn-success" type="button" onclick="goRequestPage();">ToDoList 쓰러가기</button>
 </div>
 <br>
-<button class="btn btn-success" type="button" onclick="goBoardBySale()">금액별 상품 조회</button>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
 </body>

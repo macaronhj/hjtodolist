@@ -11,26 +11,12 @@
     <link href="/css/list-groups.css" rel="stylesheet">
 </head>
 <script>
-    function goBoarderRegister(){
-        location.href = "/boarder/register/page";
+    function goRequestPage(){
+        location.href = "/checkList/register/page";
     }
-    function deleteBoarder(seq){
-        const requestDelete = document.requestDelete;
-        requestDelete.seq.value = seq;
-        requestDelete.submit();
-    }
-    function updateBoarder(seq){
-        location.href = "/boarder/update/page?seq="+seq;
-    }
-    function goBoardBySale(){
-        location.href = "/boarder/boardBySale";
-    }
+
 </script>
 <body>
-
-<form name="requestDelete" method="post" action="/boarder/delete">
-    <input type="hidden" name="seq">
-</form>
 <div class="b-example-divider"></div>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
     <div class="list-group" th:each="list : ${todoList}">
@@ -44,7 +30,7 @@
     </span>
         </label>
     </div>
-</div>
+<button class="btn btn-success" type="button" onclick="goRequestPage();">ToDoList 쓰러가기</button>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
 </body>

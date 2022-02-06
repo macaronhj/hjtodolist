@@ -19,7 +19,7 @@ public class CheckListContoller {
     private final CheckListService checkListService;
     @GetMapping(value = "/firstPage")
     public ModelAndView requestPage(ModelAndView mv){
-        log.info("CheckListController > requestPage 화장품 등록 페이지 이동 중 요청");
+        log.info("CheckListController > requestPage 리스트 등록 페이지 이동 중 요청");
         mv.setViewName("firstPage.html");
         return mv;
     }
@@ -31,7 +31,7 @@ public class CheckListContoller {
     }
     @PostMapping(value = "/registerRequest")
     public ModelAndView registerRequest(CheckListDto checkListDto, ModelAndView mv){
-        log.info("[CheckListController -> registerRequest 상품 등록 요청함]");
+        log.info("[CheckListController -> registerRequest 리스트 등록 요청함]");
         mv.addObject("todoList", checkListService.registerRequest(checkListDto));
         mv.setViewName("redirect:/checkList/list");
         return mv;
@@ -52,8 +52,22 @@ public class CheckListContoller {
     }
     @PostMapping(value = "/delete")
     public ModelAndView requestDelete(ModelAndView mv, Long seq){
-        log.info("[BoarderController -> requestDelete 화장품 삭제 요청함]");
-        mv.addObject("cosList", checkListService.requestDelete(seq));
+        log.info("[CheckListController -> requestDelete 리스트 삭제 요청함]");
+        mv.addObject("todoList", checkListService.requestDelete(seq));
+        mv.setViewName("redirect:/checkList/list");
+        return mv;
+    }
+    @GetMapping(value = "/update/page")
+    public ModelAndView updatePage(ModelAndView mv, Long seq){
+        log.info("[CheckListController->update page 이동 요청함]");
+        mv.addObject("todoInfo", checkListService.updatePage(seq));
+        mv.setViewName("/updateForm.html");
+        return mv;
+    }
+    @PostMapping(value = "/update/save")
+    public ModelAndView doUpdate(CheckListDto checkListDto, ModelAndView mv){
+        log.info("[CheckListController -> doUpdate 수정 요청함]");
+        mv.addObject("todoList", checkListService.doUpdate(checkListDto));
         mv.setViewName("redirect:/checkList/list");
         return mv;
     }

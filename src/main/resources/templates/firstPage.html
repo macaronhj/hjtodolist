@@ -35,6 +35,9 @@
     function goRequestPage(){
         location.href = "/checkList/request/page";
     }
+    function goSelectAllPage(){
+        location.href = "/checkList/list";
+    }
 </script>
 <body class="d-flex h-100 text-center text-white bg-dark">
 
@@ -55,6 +58,10 @@
         <p class="lead">If you wanna have your own 'ToDoList', Please press the button!</p>
         <p class="lead">
             <button type="button" class="btn btn-light" onclick="goListRegister();">Click me!</button>
+        </p>
+        <p class="lead">If you wanna check your all 'ToDoList', Please press the button!</p>
+        <p class="lead">
+            <button type="button" class="btn btn-success" onclick="goSelectAllPage();">Click me!</button>
         </p>
         <p class="lead">If you wanna modify or delete your 'ToDoList', Please press the button!</p>
         <p class="lead">

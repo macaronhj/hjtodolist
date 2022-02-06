@@ -23,7 +23,7 @@ public class CheckListService {
         String registerResult = "화장품 등록 실패";
         if(result > 0 ){
             registerResult="화장품 등록 성공";
-            log.info("[BoarderService -> registerRequest 화장품 등록 요청 성공함]");
+            log.info("[CheckListService -> registerRequest 리스트 등록 요청 성공함]");
         }
         return checkListMapper.findAll();
     }
@@ -32,7 +32,18 @@ public class CheckListService {
         String registerResult = "상품 삭제 실패";
         if(result > 0 ){
             registerResult = "상품 삭제 성공";
-            log.info("[BoarderService -> delete 상품 삭제 요청 성공]");
+            log.info("[CheckListService -> delete 리스트 삭제 요청 성공]");
+        }
+        return checkListMapper.findAll();
+    }
+    public CheckListDto updatePage(Long seq){return checkListMapper.updatePage(seq);}
+
+    public List<CheckListDto> doUpdate(CheckListDto checkListDto){
+        int result = checkListMapper.doUpdate(checkListDto);
+        String updateRegister = "수정 실패";
+        if(result>0){
+            updateRegister="수정 성공";
+            log.info("[BoarderService -> doUpdate 리스트 수정 요청 성공]");
         }
         return checkListMapper.findAll();
     }
