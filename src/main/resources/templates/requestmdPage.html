@@ -21,7 +21,9 @@
   function updateBoarder(seq){
     location.href = "/checkList/update/page?seq="+seq;
   }
-
+  function goFirstPage(){
+    location.href = "/checkList/firstPage";
+  }
 </script>
 <body>
 <form name="requestDelete" method="post" action="/checkList/delete">
@@ -49,6 +51,7 @@
     </tr>
   </table>
   <button class="btn btn-success" type="button" onclick="goRequestPage();">ToDoList 쓰러가기</button>
+  <button class="btn btn-success" type="button" onclick="goFirstPage();">처음 페이지로 돌아가기</button>
 </div>
 <br>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>

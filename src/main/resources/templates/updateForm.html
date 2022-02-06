@@ -11,7 +11,7 @@
     <link href="/css/dropdowns.css" rel="stylesheet">
 
 </head>
-<script language="javascript">
+<script>
     function doModify(){
         const reqUserForm = document.doUpdate;
         reqUserForm.setAttribute("method","post")
@@ -33,7 +33,7 @@
 
         <div class="b-example-divider"></div>
 
-        <div class="dropdown-menu p-2 shadow rounded-3" style="width: 340px" id="dropdownCalendar">
+        <div class="dropdown-menu p-2 shadow rounded-3" style="width: 340px" id="dropdownCalendar" th:value="${todoInfo.create_at}">
             <div class="d-grid gap-1">
                 <div class="cal">
                     <div class="cal-month">

@@ -11,9 +11,12 @@
     <link href="/css/dropdowns.css" rel="stylesheet">
 
 </head>
-<script language="javascript">
+<script>
     function doRegister(){
         document.register.submit();
+    }
+    function goFirstPage(){
+        location.href = "/checkList/firstPage";
     }
 </script>
 <body>
@@ -111,7 +114,8 @@
                 Please select date.
             </div>
             <div class="col-12">
-                <button class="btn btn-outline-success" type="button" onclick="doRegister();">Register</button>
+                <button class="btn btn-success" type="button" onclick="doRegister();">Register</button>
+                <button class="btn btn-success" type="button" onclick="goFirstPage();">처음 페이지로 돌아가기</button>
             </div>
         </form>
     </div>

@@ -20,13 +20,13 @@ public class CheckListContoller {
     @GetMapping(value = "/firstPage")
     public ModelAndView requestPage(ModelAndView mv){
         log.info("CheckListController > requestPage 리스트 등록 페이지 이동 중 요청");
-        mv.setViewName("firstPage.html");
+        mv.setViewName("firstPage");
         return mv;
     }
     @GetMapping(value = "/register/page")
     public ModelAndView listRegisterPage(ModelAndView mv){
         log.info("[ CheckListController -> listRegisterPage 리스트 등록 페이지 이동 요청함]");
-        mv.setViewName("/registerForm.html");
+        mv.setViewName("/registerForm");
         return mv;
     }
     @PostMapping(value = "/registerRequest")
@@ -40,14 +40,14 @@ public class CheckListContoller {
     public ModelAndView list(ModelAndView mv){
         log.info("[CheckListController -> list 게시판 페이지 이동 요청함]");
         mv.addObject("todoList", checkListService.findAll());
-        mv.setViewName("/list.html");
+        mv.setViewName("/list");
         return mv;
     }
     @GetMapping(value = "/request/page")
     public ModelAndView requestmdPage(ModelAndView mv){
         log.info("CheckListController > requestPage 수정 삭제 페이지 이동 중 요청");
         mv.addObject("todoList", checkListService.findAll());
-        mv.setViewName("requestmdPage.html");
+        mv.setViewName("requestmdPage");
         return mv;
     }
     @PostMapping(value = "/delete")
@@ -61,7 +61,7 @@ public class CheckListContoller {
     public ModelAndView updatePage(ModelAndView mv, Long seq){
         log.info("[CheckListController->update page 이동 요청함]");
         mv.addObject("todoInfo", checkListService.updatePage(seq));
-        mv.setViewName("/updateForm.html");
+        mv.setViewName("/updateForm");
         return mv;
     }
     @PostMapping(value = "/update/save")
