@@ -31,11 +31,11 @@
 <form name="requestDelete" method="post" action="/boarder/delete">
     <input type="hidden" name="seq">
 </form>
+<div class="b-example-divider"></div>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
-    <p class="b-example-divider"></p>
-    <p class="list-group" th:each="list : ${todoList}">
+    <div class="list-group" th:each="list : ${todoList}">
         <label class="list-group-item d-flex gap-3">
-            <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked style="font-size: 1.375em;">
+            <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
             <span class="pt-1 form-checked-content">
       <strong th:text="${list.todo}"></strong>
       <small class="d-block text-muted" th:text="${#temporals.format(list.deadline, 'yyyy-MM-dd')}">
@@ -43,7 +43,7 @@
       </small>
     </span>
         </label>
-    </p>
+    </div>
 </div>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
