@@ -1,16 +1,31 @@
-<!DOCTYPE html>
-<html lang="ko"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
->
+<!doctype html>
+<html lang="en" class="h-100">
 <head>
-    <meta charset="UTF-8">
-    <title>Request Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Cover Template · Bootstrap v5.1</title>
+
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/cover.css" rel="stylesheet">
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+
     <style>
-        table {width:50%}
-        table, th, td {border:4px solid black;
-            border-collapse: collapse; padding:10px; }
-        body{background-color: MediumSeaGreen; pacity: 0.3;}
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
     </style>
 </head>
 <script>
@@ -18,32 +33,33 @@
         location.href = "/checkList/register/page";
     }
 </script>
-<body>
-<center>
-    <h1 th:align="center">[Heejin's TODOLIST]</h1>
-    <br>
-    <h3>ToDoList 등록 요청</h3>
-    <form name="frm" action="/checkList/createList" method="post">
-        <p>
-        <table>
-            <tr>
-                <td><label for="name" class="sr-only">TODO</label></td>
-                <td><input type="text" id="name" name="todo" class="form-control" placeholder="TODO" required autofocus></td>
-            </tr>
-            <tr>
-                <td><label for="count" class="sr-only">DEADLINE</label></td>
-                <td><input type="date" id="count" name="deadline" class="form-control" placeholder="DEADLINE" required></td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center"><button name="btn" type="button" onclick="goListRegister();">등록 버튼</button></td>
-            </tr>
-        </table>
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">Cover</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <h1>ToDoList</h1>
+        <p class="lead">If you wanna have your own 'ToDoList', Please press the button!</p>
+        <p class="lead">
+            <button type="button" class="btn btn-light" onclick="goListRegister();">Click me!</button>
         </p>
-    </form>
-    <h3>ToDoList 전체 출력을 원하시면 아래 버튼을 눌러주세요!</h3>
-    <form name="frm" action="/checkList/list" method="get">
-        <button name="btnFinAll" type="submit" id="btnFinAll"><img src="C:\heejin\img\start.png"></button>
-    </form>
-</center>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+        <p>Cover template for <a href="https://getbootstrap.com/" class="text-white">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-white">@mdo</a>.</p>
+    </footer>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cheatsheet.js"></script>
 </body>
 </html>
