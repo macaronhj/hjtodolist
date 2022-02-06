@@ -1,6 +1,6 @@
 create table TODOLIST(
       SEQ NUMBER(10) constraint S_CODE_PK primary key,
-      TODO VARCHAR2(100) constraint SNAME_NN not null,
+      TODO VARCHAR2(100) constraint TODO_NN not null,
       CREATE_AT datetime NOT NULL DEFAULT CURRENT_TIMESTAMP(),
       DEADLINE datetime NOT NULL DEFAULT CURRENT_TIMESTAMP()
 );

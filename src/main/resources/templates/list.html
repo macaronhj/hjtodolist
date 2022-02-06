@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+    <link href="/css/list-groups.css" rel="stylesheet">
+</head>
+<script>
+    function goBoarderRegister(){
+        location.href = "/boarder/register/page";
+    }
+    function deleteBoarder(seq){
+        const requestDelete = document.requestDelete;
+        requestDelete.seq.value = seq;
+        requestDelete.submit();
+    }
+    function updateBoarder(seq){
+        location.href = "/boarder/update/page?seq="+seq;
+    }
+    function goBoardBySale(){
+        location.href = "/boarder/boardBySale";
+    }
+</script>
+<body>
+
+<form name="requestDelete" method="post" action="/boarder/delete">
+    <input type="hidden" name="seq">
+</form>
+<h1 th:align="center">[Heejin's ToDoList]</h1>
+    <p class="b-example-divider"></p>
+    <p class="list-group" th:each="list : ${todoList}">
+        <label class="list-group-item d-flex gap-3">
+            <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked style="font-size: 1.375em;">
+            <span class="pt-1 form-checked-content">
+      <strong th:text="${list.todo}"></strong>
+      <small class="d-block text-muted" th:text="${#temporals.format(list.deadline, 'yyyy-MM-dd')}">
+        <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
+      </small>
+    </span>
+        </label>
+    </p>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cheatsheet.js"></script>
+</body>
+</html>

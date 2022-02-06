@@ -13,6 +13,11 @@
         body{background-color: MediumSeaGreen; pacity: 0.3;}
     </style>
 </head>
+<script>
+    function goListRegister(){
+        location.href = "/checkList/register/page";
+    }
+</script>
 <body>
 <center>
     <h1 th:align="center">[Heejin's TODOLIST]</h1>
@@ -30,7 +35,7 @@
                 <td><input type="date" id="count" name="deadline" class="form-control" placeholder="DEADLINE" required></td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><button name="btn" type="submit" id="btnId">등록 버튼</button></td>
+                <td colspan="2" align="center"><button name="btn" type="button" onclick="goListRegister();">등록 버튼</button></td>
             </tr>
         </table>
         </p>
