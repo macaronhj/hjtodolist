@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/cheatsheet.css" rel="stylesheet">
+    <link href="/css/dropdowns.css" rel="stylesheet">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+
+</head>
+<script>
+    function doModify(){
+        const reqUserForm = document.doUpdate;
+        reqUserForm.setAttribute("method","post")
+        reqUserForm.setAttribute("action","/checkList/update")
+        reqUserForm.submit();
+    }
+</script>
+<body>
+<h1 th:align="center">[Heejin's ToDoList]</h1>
+<br>
+<div th:align="center">
+    <form name="doUpdate">
+        <input type="hidden" name="seq" th:value="${todoInfo.seq}">
+        <label for="validationServer01" class="form-label">TODO</label>
+        <input th:align="center" type="text" class="form-control is-valid" name="todo" id="validationServer01" th:value="${todoInfo.todo}" style="width: 500px" required>
+        <div class="valid-feedback">
+            Please wirte ToDoList.
+        </div>
+
+        <div class='col-md-3 col-xs-4' th:value="${todoInfo.deadline}">
+                <div class="form-group">
+                    <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" value="02/01/2022" name="deadline">
+                        <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                            <div class="input-group-text">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <p class="valid-feedback" th:align="center">
+            Please select the date.
+        </p>
+        <div class="col-12">
+            <button class="btn btn-outline-success" type="button" onclick="doModify();">Modify!</button>
+        </div>
+    </form>
+</div>
+<script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/js/cheatsheet.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker1').datetimepicker({ format: 'L'});}); </script>
+</body>
+</html>

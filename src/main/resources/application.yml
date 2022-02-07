@@ -18,4 +18,5 @@ spring:
   thymeleaf:
     suffix: .html
 mybatis:
-  type-aliases-package: com.example.hjtodolist.todolist.dto
+  type-aliases-package: first.project.todolist.todolist.dto
+

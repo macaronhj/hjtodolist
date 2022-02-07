@@ -1,6 +1,6 @@
-package com.example.hjtodolist.todolist.mapper;
+package first.project.todolist.todolist.mapper;
 
-import com.example.hjtodolist.todolist.dto.CheckListDto;
+import first.project.todolist.todolist.dto.CheckListDto;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -19,6 +19,6 @@ public interface CheckListMapper {
     @Select("SELECT * FROM TODOLIST WHERE seq = #{seq}")
     CheckListDto updatePage(Long seq);
 
-    @Update("UPDATE TODOLIST SET TODO=#{todo} WHERE seq = #{seq}")
+    @Update("UPDATE TODOLIST SET TODO=#{todo}, DEADLINE=#{deadline} WHERE seq = #{seq}")
     int doUpdate(CheckListDto checkListDto);
 }

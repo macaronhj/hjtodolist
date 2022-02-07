@@ -21,14 +21,14 @@
         document.register.submit();
     }
     function goFirstPage(){
-        location.href = "/checkList/firstPage";
+        location.href = "/";
     }
 </script>
 <body>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
 <br>
     <div th:align="center">
-        <form name="register" action="/checkList/registerRequest" method="post">
+        <form name="register" action="/checkList/register" method="post">
                 <label for="validationServer01" class="form-label">TODO</label>
                 <input th:align="center" type="text" class="form-control is-valid" name="todo" id="validationServer01" placeholder="todo" style="width: 500px" required>
                 <div class="valid-feedback">
@@ -61,9 +61,6 @@
 <script src="/js/cheatsheet.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('#datetimepicker1').datetimepicker({ format: 'L'});
-        $('#datetimepicker2').datetimepicker({ format: 'L', useCurrent: false });
-        $("#datetimepicker1").on("change.datetimepicker", function (e) { $('#datetimepicker2').datetimepicker('minDate', e.date); });
-        $("#datetimepicker2").on("change.datetimepicker", function (e) { $('#datetimepicker1').datetimepicker('maxDate', e.date); }); }); </script>
+        $('#datetimepicker1').datetimepicker({ format: 'L'});}); </script>
 </body>
 </html>
