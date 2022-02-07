@@ -20,18 +20,18 @@ public class CheckListService {
 
     public List<CheckListDto> registerRequest(CheckListDto checkListDto){
         int result = checkListMapper.registerRequest(checkListDto);
-        String registerResult = "화장품 등록 실패";
+        String registerResult = "투두리스트 등록 실패";
         if(result > 0 ){
-            registerResult="화장품 등록 성공";
+            registerResult="투두리스트 등록 성공";
             log.info("[CheckListService -> registerRequest 리스트 등록 요청 성공함]");
         }
         return checkListMapper.findAll();
     }
     public List<CheckListDto> requestDelete(Long seq){
         int result = checkListMapper.requestDelete(seq);
-        String registerResult = "상품 삭제 실패";
+        String registerResult = "투두리스트 삭제 실패";
         if(result > 0 ){
-            registerResult = "상품 삭제 성공";
+            registerResult = "투두리스트 삭제 성공";
             log.info("[CheckListService -> delete 리스트 삭제 요청 성공]");
         }
         return checkListMapper.findAll();

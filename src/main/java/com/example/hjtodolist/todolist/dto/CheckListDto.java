@@ -3,6 +3,7 @@ package com.example.hjtodolist.todolist.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Getter
@@ -10,6 +11,6 @@ import java.time.LocalDateTime;
 public class CheckListDto {
     private Long seq;
     private String todo;
-    private LocalDateTime create_at;
-    private LocalDateTime deadline;
+    private Date create_at;
+    private String deadline;
 }

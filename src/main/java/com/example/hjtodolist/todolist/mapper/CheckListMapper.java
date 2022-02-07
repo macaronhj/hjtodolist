@@ -10,7 +10,7 @@ public interface CheckListMapper {
     @Select("SELECT * FROM TODOLIST")
     List<CheckListDto> findAll();
 
-    @Insert("INSERT INTO TODOLIST values (SEQ.NEXTVAL,#{todo},now(),now())")
+    @Insert("INSERT INTO TODOLIST values (SEQ.NEXTVAL,#{todo},now(),#{deadline})")
     int registerRequest(CheckListDto checkListDto);
 
     @Delete("DELETE FROM TODOLIST WHERE SEQ = #{seq}")
