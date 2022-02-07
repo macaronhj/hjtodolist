@@ -22,16 +22,14 @@
 <body>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
 <br>
-<div class="bd-example">
-    <form class="row g-3" name="doUpdate">
+<div th:align="center">
+    <form name="doUpdate">
         <input type="hidden" name="seq" th:value="${todoInfo.seq}">
         <label for="validationServer01" class="form-label">TODO</label>
-        <input th:align="center" type="text" class="form-control is-valid" name="todo" id="validationServer01" th:value="${todoInfo.todo}" required>
+        <input th:align="center" type="text" class="form-control is-valid" name="todo" id="validationServer01" th:value="${todoInfo.todo}" style="width: 500px" required>
         <div class="valid-feedback">
             Please wirte ToDoList.
         </div>
-
-        <div class="b-example-divider"></div>
 
         <div class="dropdown-menu p-2 shadow rounded-3" style="width: 340px" id="dropdownCalendar" th:value="${todoInfo.create_at}">
             <div class="d-grid gap-1">
@@ -111,9 +109,9 @@
                 </div>
             </div>
         </div>
-        <div class="valid-feedback" th:align="center">
-            Please select date.
-        </div>
+        <p class="valid-feedback" th:align="center">
+            Please select the date.
+        </p>
         <div class="col-12">
             <button class="btn btn-outline-success" type="button" onclick="doModify();">Modify!</button>
         </div>
