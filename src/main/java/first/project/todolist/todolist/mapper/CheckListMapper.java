@@ -16,7 +16,7 @@ public interface CheckListMapper {
     @Delete("DELETE FROM TODOLIST WHERE SEQ = #{seq}")
     int requestDelete(Long seq);
 
-    @Select("SELECT * FROM TODOLIST WHERE seq = #{seq}")
+    @Select("SELECT TODO, deadline FROM TODOLIST WHERE seq = #{seq}")
     CheckListDto updatePage(Long seq);
 
     @Update("UPDATE TODOLIST SET TODO=#{todo}, DEADLINE=#{deadline} WHERE seq = #{seq}")

@@ -11,17 +11,25 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 @Slf4j
+
+
 public class CheckListService {
     private final CheckListMapper checkListMapper;
+
+    /**
+     * @return     todolist table에 담겨있는 모든 정보 (selectAll)
+     */
 
     public List<CheckListDto> findAll(){
         return checkListMapper.findAll();
     }
 
     /**
-     * [register]
-     * 글 등록 후 리스트가 나오도록!!(selectAll)
+     *
+     * @param checkListDto todo, deadline을 입력받아 등록하기 위해 씀
+     * @return             등록한 값을 리스트에 담아 전체 리스트를 뽑음
      */
+
     public List<CheckListDto> registerRequest(CheckListDto checkListDto){
         int result = checkListMapper.registerRequest(checkListDto);
         String registerResult = "failed to register the todolist!";
@@ -34,9 +42,11 @@ public class CheckListService {
 
 
     /**
-     * [Delete]
-     * 삭제 후 해당 글을 제외한 나머지 리스트가 나오도록!!(selectAll)
+     *
+     * @param seq   삭제하고자 하는 row의 인덱스 값
+     * @return      삭제한 것을 제외한 모든 리스트를 뽑음
      */
+
     public List<CheckListDto> requestDelete(Long seq){
         int result = checkListMapper.requestDelete(seq);
         String registerResult = "failed to delete the todolist!";
@@ -47,17 +57,20 @@ public class CheckListService {
         return checkListMapper.findAll();
     }
 
-
     /**
-     * [UpdatePage]
-     * 수정할 글 선택 후 값을 바꿀 수 있음(select)
+     *
+     * @param seq   수정하고자 하는 row의 인덱스 값
+     * @return      특정 인덱스의 'todo', 'deadline'의 정보
+     *              'todo'와 'dealine' 수정을 가능케 함
      */
+
     public CheckListDto updatePage(Long seq){return checkListMapper.updatePage(seq);}
 
 
     /**
-     * [Update]
-     * 바꾼 값으로 리스트 보여줌(selectAll)
+     *
+     * @param checkListDto    수정하고자 특정 row의 'todo','deadline'의 정보
+     * @return                수정하고 나서의 값으로 전체 리스트를 뽑음
      */
     public List<CheckListDto> doUpdate(CheckListDto checkListDto){
         int result = checkListMapper.doUpdate(checkListDto);

@@ -15,6 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 @RequestMapping("/checkList")
 
+    /**
+     * @author  heejin
+     * @version 1.0
+     * @see     none
+     * @see     none
+     */
 public class CheckListController {
     private final CheckListService checkListService;
 
