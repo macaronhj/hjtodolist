@@ -6,8 +6,18 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
+/**
+ * packageName : first.project.todolist.dto
+ * fileName : CheckListDto
+ * author : heejin
+ * date : 2022-02-06
+ * description :
+ * ===========================================================
+ * DATE                  AUTHOR                  NOTE
+ * -----------------------------------------------------------
+ * 2022-02-06           heejin             최초 생성
+ */
 @Getter
 @Setter
 //@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)

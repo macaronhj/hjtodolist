@@ -15,18 +15,22 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 @RequestMapping("/checkList")
 
-    /**
-     * @author  heejin
-     * @version 1.0
-     * @see     none
-     * @see     none
-     */
+/**
+ * packageName : first.project.todolist.controller
+ * fileName : CheckListController
+ * author : heejin
+ * date : 2022-02-06
+ * description :
+ * ===========================================================
+ * DATE                  AUTHOR                  NOTE
+ * -----------------------------------------------------------
+ * 2022-02-06           heejin             최초 생성
+ */
+
 public class CheckListController {
     private final CheckListService checkListService;
 
-    /**
-     * todolist 등록 페이지(View) 이동
-     */
+
     @GetMapping(value = "/register")
     public ModelAndView listRegisterPage(ModelAndView mv){
         log.info("[ CheckListController -> listRegisterPage 리스트 등록 페이지 이동 요청함]");
@@ -35,7 +39,11 @@ public class CheckListController {
     }
 
     /**
-     * todolist 등록 기능 수행 
+     * 체크리스트 등록  ( DTO 로 요청 받는 경우 )
+     * 현재는 postman 과같은 툴을 이용해서만 테스트 가능
+     * @param checkListDto checkListDto
+     * @param mv mv
+     * @return ModelAndView
      */
     @PostMapping(value = "/register")
     public ModelAndView registerRequest(CheckListDto checkListDto, ModelAndView mv){
@@ -45,9 +53,7 @@ public class CheckListController {
         return mv;
     }
 
-    /**
-     * todolist selectAll 페이지(View) 이동
-     */
+
     @GetMapping(value = "/list")
     public ModelAndView list(ModelAndView mv){
         log.info("[CheckListController -> list 게시판 페이지 이동 요청함]");
@@ -56,9 +62,6 @@ public class CheckListController {
         return mv;
     }
 
-    /**
-     * todolist 수정과 삭제 가능한 페이지(View) 이동
-     */
     @GetMapping(value = "/request/page")
     public ModelAndView requestmdPage(ModelAndView mv){
         log.info("CheckListController > requestPage 수정 삭제 페이지 이동 중 요청");
@@ -68,7 +71,10 @@ public class CheckListController {
     }
 
     /**
-     * todolist 삭제 기능 수행
+     * 체크리스트 삭제 요청
+     * @param mv mv
+     * @param seq seq
+     * @return ModelAndView
      */
     @PostMapping(value = "/delete")
     public ModelAndView requestDelete(ModelAndView mv, Long seq){
@@ -90,7 +96,11 @@ public class CheckListController {
     }
 
     /**
-     * todolist 수정 기능 수행
+     * 체크리스트 수정  ( DTO 로 요청 받는 경우 )
+     * 현재는 postman 과같은 툴을 이용해서만 테스트 가능
+     * @param checkListDto checkListDto
+     * @param mv mv
+     * @return ModelAndView
      */
     @PostMapping(value = "/update")
     public ModelAndView doUpdate(CheckListDto checkListDto, ModelAndView mv){

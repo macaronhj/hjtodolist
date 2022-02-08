@@ -8,28 +8,38 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
+/**
+ * packageName : first.project.todolist.service
+ * fileName : CheckListService
+ * author : heejin
+ * date : 2022-02-06
+ * description :
+ * ===========================================================
+ * DATE                  AUTHOR                  NOTE
+ * -----------------------------------------------------------
+ * 2022-02-06           heejin             최초 생성
+ */
 @Service
 @RequiredArgsConstructor
 @Slf4j
-
-
 public class CheckListService {
     private final CheckListMapper checkListMapper;
 
     /**
-     * @return     todolist table에 담겨있는 모든 정보 (selectAll)
+     * 전체 체크리스트 요청
+     * @return   List<CheckListDto>
      */
-
     public List<CheckListDto> findAll(){
         return checkListMapper.findAll();
     }
 
-    /**
-     *
-     * @param checkListDto todo, deadline을 입력받아 등록하기 위해 씀
-     * @return             등록한 값을 리스트에 담아 전체 리스트를 뽑음
-     */
 
+    /**
+     * 체크리스트정보 등록, 결과 문구 리턴
+     * @param checkListDto checkListDto
+     * @return List<checkListDto>
+     */
     public List<CheckListDto> registerRequest(CheckListDto checkListDto){
         int result = checkListMapper.registerRequest(checkListDto);
         String registerResult = "failed to register the todolist!";
@@ -42,11 +52,10 @@ public class CheckListService {
 
 
     /**
-     *
-     * @param seq   삭제하고자 하는 row의 인덱스 값
-     * @return      삭제한 것을 제외한 모든 리스트를 뽑음
+     * 체크리스트 삭제 요청 처리
+     * @param seq seq
+     * @return List<checkListDto>
      */
-
     public List<CheckListDto> requestDelete(Long seq){
         int result = checkListMapper.requestDelete(seq);
         String registerResult = "failed to delete the todolist!";
@@ -58,19 +67,16 @@ public class CheckListService {
     }
 
     /**
-     *
-     * @param seq   수정하고자 하는 row의 인덱스 값
-     * @return      특정 인덱스의 'todo', 'deadline'의 정보
-     *              'todo'와 'dealine' 수정을 가능케 함
+     * seq에 해당하는 사용자 조회
+     * @return CheckListDto
      */
-
     public CheckListDto updatePage(Long seq){return checkListMapper.updatePage(seq);}
 
 
     /**
-     *
-     * @param checkListDto    수정하고자 특정 row의 'todo','deadline'의 정보
-     * @return                수정하고 나서의 값으로 전체 리스트를 뽑음
+     * 체크리스트정보 수정, 결과 문구 리턴
+     * @param checkListDto checkListDto
+     * @return List<checkListDto>
      */
     public List<CheckListDto> doUpdate(CheckListDto checkListDto){
         int result = checkListMapper.doUpdate(checkListDto);

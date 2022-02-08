@@ -5,6 +5,17 @@ import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
+/**
+ * packageName : first.project.todolist.mapper
+ * fileName : CheckListMapper
+ * author : heejin
+ * date : 2022-02-06
+ * description :
+ * ===========================================================
+ * DATE                  AUTHOR                  NOTE
+ * -----------------------------------------------------------
+ * 2022-02-06           heejin             최초 생성
+ */
 @Mapper
 public interface CheckListMapper {
     @Select("SELECT * FROM TODOLIST")
