@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 @Getter
@@ -19,6 +20,6 @@ public class CheckListDto {
 
     private Long seq;
     private String todo;
-    private LocalDateTime create;
+    private Date create;
     private String deadline;
 }

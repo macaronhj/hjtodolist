@@ -37,7 +37,15 @@
         <div class="valid-feedback">
             Please wirte ToDoList.
         </div>
-
+        <br/>
+        <div>
+            <label for="validationServer01" class="form-label">CREATE DATE</label>
+            <input th:align="center" type="text" class="form-control is-valid" name="create" id="validationServer02" th:value="${todoInfo.create}" style="width: 500px" disabled>
+            <div class="valid-feedback">
+                It's the date it was created.
+            </div>
+        </div>
+        <br/>
         <div class='col-md-3 col-xs-4' th:value="${todoInfo.deadline}">
                 <div class="form-group">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
