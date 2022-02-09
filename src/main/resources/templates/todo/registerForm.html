@@ -41,7 +41,7 @@
                 });
             }
         });
-        $(".goFirstPage").on("click", function () {
+        $("#goFirstPage").on("click", function () {
             $(location).attr("href", "/");
         });
     });
@@ -92,8 +92,8 @@
                 Please select the deadline.
             </p>
             <div class="col-12">
-                <button class="btn btn-success doRegister" type="button">Register</button>
-                <button class="btn btn-success goFirstPage" type="button">처음 페이지로 돌아가기</button>
+                <button id ="doRegister" class="btn btn-success" type="button">Register</button>
+                <button id ="goFirstPage" class="btn btn-success" type="button">처음 페이지로 돌아가기</button>
             </div>
         </form>
     </div>
