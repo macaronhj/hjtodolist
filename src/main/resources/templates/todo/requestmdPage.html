@@ -26,9 +26,14 @@
       $(location).attr("href", "/checkList/register");
     });
 
-    //게시글 수정 페이지 이동
+    //메인 페이지 이동
     $(".goFirstPage").on("click", function () {
       $(location).attr("href", "/");
+    });
+
+    //게시글 수정 페이지 이동
+    $(".updateBoarder").on("click", function () {
+      $(location).attr("href", "/checkList/update?seq=" + $(this).data("value"));
     });
 
     //게시글 삭제 처리
@@ -36,7 +41,7 @@
       // 아래는 비동기 처리
       $.post("/checkList/delete", {seq: $(this).data("value")}, function (data) {
         alert(data);
-        location.reload();
+        $(location).attr("href", "/checkList/list");
       });
     });
 
@@ -64,7 +69,7 @@
       <td class="table-danger"><span th:text="${list.create}"></span></td>
       <td class="table-secondary"><span th:text="${list.startdate}"></span></td>
       <td class="table-warning"><span th:text="${list.deadline}"></span></td>
-      <td class="table-info"><button class="btn btn-info" type="button" th:onclick="|updateBoarder(${list.seq})|">수정</button>
+      <td class="table-info"><button class="btn btn-info updateBoarder" type="button" th:data-value="${list.seq}">수정</button>
       <td class="table-danger"><button class="btn btn-outline-danger deleteBoarder" type="button" th:data-value="${list.seq}">삭제</button>
       </td>
     </tr>

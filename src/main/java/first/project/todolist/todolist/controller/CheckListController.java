@@ -38,21 +38,6 @@ public class CheckListController {
         return mv;
     }
 
-    /**
-     * 체크리스트 등록  ( DTO 로 요청 받는 경우 )
-     * 현재는 postman 과같은 툴을 이용해서만 테스트 가능
-     * @param checkListDto checkListDto
-     * @param mv mv
-     * @return ModelAndView
-     */
-    @PostMapping(value = "/register")
-    public ModelAndView registerRequest(CheckListDto checkListDto, ModelAndView mv){
-        log.info("[CheckListController -> registerRequest 리스트 등록 요청함]");
-        mv.addObject("todoList", checkListService.registerRequest(checkListDto));
-        mv.setViewName("/checkList/list");
-        return mv;
-    }
-
 
     @GetMapping(value = "/list")
     public ModelAndView list(ModelAndView mv){
@@ -70,19 +55,6 @@ public class CheckListController {
         return mv;
     }
 
-    /**
-     * 체크리스트 삭제 요청
-     * @param mv mv
-     * @param seq seq
-     * @return ModelAndView
-     */
-    @PostMapping(value = "/delete")
-    public ModelAndView requestDelete(ModelAndView mv, Long seq){
-        log.info("[CheckListController -> requestDelete 리스트 삭제 요청함]");
-        mv.addObject("todoList", checkListService.requestDelete(seq));
-        mv.setViewName("redirect:/checkList/list");
-        return mv;
-    }
 
     /**
      * todolist 수정 페이지(View) 이동
@@ -95,18 +67,4 @@ public class CheckListController {
         return mv;
     }
 
-    /**
-     * 체크리스트 수정  ( DTO 로 요청 받는 경우 )
-     * 현재는 postman 과같은 툴을 이용해서만 테스트 가능
-     * @param checkListDto checkListDto
-     * @param mv mv
-     * @return ModelAndView
-     */
-    @PostMapping(value = "/update")
-    public ModelAndView doUpdate(CheckListDto checkListDto, ModelAndView mv){
-        log.info("[CheckListController -> doUpdate 수정 요청함]");
-        mv.addObject("todoList", checkListService.doUpdate(checkListDto));
-        mv.setViewName("redirect:/checkList/list");
-        return mv;
-    }
 }

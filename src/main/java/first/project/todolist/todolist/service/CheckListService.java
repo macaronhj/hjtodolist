@@ -40,14 +40,17 @@ public class CheckListService {
      * @param checkListDto checkListDto
      * @return List<checkListDto>
      */
-    public List<CheckListDto> registerRequest(CheckListDto checkListDto){
-        int result = checkListMapper.registerRequest(checkListDto);
+    public String registerRequest(CheckListDto checkListDto){
         String registerResult = "failed to register the todolist!";
-        if(result > 0 ){
-            registerResult="success to register the todolist!";
+        try{
+            if(checkListMapper.registerRequest(checkListDto)>0){
+                registerResult ="success to register the todolist!";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         log.info("[CheckListService -> registerRequest 리스트 등록 요청 결과 -> {}]",registerResult);
-        return checkListMapper.findAll();
+        return registerResult;
     }
 
 
@@ -56,14 +59,14 @@ public class CheckListService {
      * @param seq seq
      * @return List<checkListDto>
      */
-    public List<CheckListDto> requestDelete(Long seq){
+    public String requestDelete(Long seq){
         int result = checkListMapper.requestDelete(seq);
         String registerResult = "failed to delete the todolist!";
         if(result > 0 ){
             registerResult = "success to delete the todolist!";
         }
         log.info("[CheckListService -> delete 리스트 삭제 요청 결과 -> {}]",registerResult);
-        return checkListMapper.findAll();
+        return registerResult;
     }
 
     /**
@@ -78,13 +81,17 @@ public class CheckListService {
      * @param checkListDto checkListDto
      * @return List<checkListDto>
      */
-    public List<CheckListDto> doUpdate(CheckListDto checkListDto){
+    public String doUpdate(CheckListDto checkListDto){
         int result = checkListMapper.doUpdate(checkListDto);
         String updateRegister = "failed to update the todolist!";
-        if(result>0){
-            updateRegister="success to update the todolist";
+        try {
+            if (result > 0) {
+                updateRegister = "success to update the todolist";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
         log.info("[BoarderService -> doUpdate 리스트 수정 요청 결과 -> {}]",updateRegister);
-        return checkListMapper.findAll();
+        return updateRegister;
     }
 }
