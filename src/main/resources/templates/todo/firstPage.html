@@ -11,6 +11,7 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/cover.css" rel="stylesheet">
     <link href="/css/cheatsheet.css" rel="stylesheet">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -29,15 +30,23 @@
     </style>
 </head>
 <script>
-    function goRegisterPage(){
-        location.href = "/checkList/register";
-    }
-    function goRequestPage(){
-        location.href = "/checkList/request/page";
-    }
-    function goSelectAllPage(){
-        location.href = "/checkList/list";
-    }
+    $(document).ready(function () {
+        //게시글 등록 페이지 이동
+        $(".goRegisterPage").on("click", function () {
+            $(location).attr("href", "/checkList/register");
+        });
+
+        //게시글 수정 페이지 이동
+        $(".goSelectAllPage").on("click", function () {
+            $(location).attr("href", "/checkList/list");
+        });
+
+         //게시글 삭제 처리
+        $(".goRequestPage").on("click", function () {
+            $(location).attr("href", "/checkList/request/page");
+        });
+    });
+
 </script>
 <body class="d-flex h-100 text-center text-white bg-dark">
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -55,17 +64,17 @@
         <br>
         <p class="lead">If you wanna have your own 'ToDoList', Please press the button!</p>
         <p class="lead">
-            <button type="button" class="btn btn-light" onclick="goRegisterPage();">Click me!</button>
+            <button type="button" class="btn btn-light goRegisterPage">Click me!</button>
         </p>
         <br>
         <p class="lead">If you wanna check your all 'ToDoList', Please press the button!</p>
         <p class="lead">
-            <button type="button" class="btn btn-success" onclick="goSelectAllPage();">Click me!</button>
+            <button type="button" class="btn btn-success goSelectAllPage">Click me!</button>
         </p>
         <br>
         <p class="lead">If you wanna modify or delete your 'ToDoList', Please press the button!</p>
         <p class="lead">
-            <button type="button" class="btn btn-light" onclick="goRequestPage();">Click me!</button>
+            <button type="button" class="btn btn-light goRequestPage">Click me!</button>
         </p>
         <br>
     </main>

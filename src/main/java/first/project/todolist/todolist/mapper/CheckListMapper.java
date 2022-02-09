@@ -18,18 +18,18 @@ import java.util.List;
  */
 @Mapper
 public interface CheckListMapper {
-    @Select("SELECT * FROM TODOLIST")
+    @Select("SELECT * FROM todolist")
     List<CheckListDto> findAll();
 
-    @Insert("INSERT INTO TODOLIST values (SEQ.NEXTVAL,#{todo},now(),#{deadline})")
+    @Insert("INSERT INTO todolist VALUES (seq.NEXTVAL,#{todo},now(),#{startdate},#{deadline})")
     int registerRequest(CheckListDto checkListDto);
 
-    @Delete("DELETE FROM TODOLIST WHERE SEQ = #{seq}")
+    @Delete("DELETE FROM todolist WHERE seq = #{seq}")
     int requestDelete(Long seq);
 
-    @Select("SELECT * FROM TODOLIST WHERE seq = #{seq}")
+    @Select("SELECT * FROM todolist WHERE seq = #{seq}")
     CheckListDto updatePage(Long seq);
 
-    @Update("UPDATE TODOLIST SET TODO=#{todo}, DEADLINE=#{deadline} WHERE seq = #{seq}")
+    @Update("UPDATE todolist SET todo=#{todo}, deadline=#{deadline} WHERE seq = #{seq}")
     int doUpdate(CheckListDto checkListDto);
 }

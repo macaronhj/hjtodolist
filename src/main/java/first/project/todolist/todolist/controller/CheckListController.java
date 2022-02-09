@@ -49,7 +49,7 @@ public class CheckListController {
     public ModelAndView registerRequest(CheckListDto checkListDto, ModelAndView mv){
         log.info("[CheckListController -> registerRequest 리스트 등록 요청함]");
         mv.addObject("todoList", checkListService.registerRequest(checkListDto));
-        mv.setViewName("redirect:/checkList/list");
+        mv.setViewName("/checkList/list");
         return mv;
     }
 

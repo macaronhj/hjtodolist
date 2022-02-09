@@ -9,17 +9,26 @@
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/cheatsheet.css" rel="stylesheet">
     <link href="/css/list-groups.css" rel="stylesheet">
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <script>
-    function goRequestPage(){
-        location.href = "/checkList/register";
-    }
-    function goFirstPage(){
-        location.href = "/";
-    }
-    function goModifyPage(){
-        location.href = "/checkList/request/page";
-    }
+    $(document).ready(function () {
+        //게시글 등록 페이지 이동
+        $(".goRequestPage").on("click", function () {
+            $(location).attr("href", "/checkList/register");
+        });
+
+        //게시글 수정 페이지 이동
+        $(".goFirstPage").on("click", function () {
+            $(location).attr("href", "/");
+        });
+
+        //게시글 삭제 처리
+        $(".goModifyPage").on("click", function () {
+            $(location).attr("href", "/checkList/request/page");
+        });
+    });
+
 </script>
 <body>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
@@ -28,15 +37,20 @@
             <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
             <span class="pt-1 form-checked-content">
       <strong th:text="${list.todo}"></strong>
+<!--      <small class="d-block text-muted" th:text="시작일"></small>-->
+      <small class="d-block text-muted" th:text="${list.startdate}">
+        <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
+      </small>
+<!--      <small class="d-block text-muted" th:text="기한"></small>-->
       <small class="d-block text-muted" th:text="${list.deadline}">
         <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
       </small>
     </span>
         </label>
     </div>
-<button class="btn btn-success" type="button" onclick="goRequestPage();">ToDoList 쓰러가기</button>
-<button class="btn btn-success" type="button" onclick="goModifyPage();">수정페이지로 가기</button>
-<button class="btn btn-success" type="button" onclick="goFirstPage();">처음 페이지로 돌아가기</button>
+<button class="btn btn-success goRequestPage" type="button">ToDoList 쓰러가기</button>
+<button class="btn btn-success goModifyPage" type="button">수정페이지로 가기</button>
+<button class="btn btn-success goFirstPage" type="button">처음 페이지로 돌아가기</button>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
 </body>

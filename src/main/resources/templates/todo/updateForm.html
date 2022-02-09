@@ -46,6 +46,21 @@
             </div>
         </div>
         <br/>
+        <div class='col-md-3 col-xs-4' th:value="${todoInfo.startdate}">
+            <div class="form-group">
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2" value="02/01/2022" name="startdate">
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text">
+                            <i class="fa fa-calendar"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="valid-feedback" th:align="center">
+            Please select the start-date.
+        </p>
         <div class='col-md-3 col-xs-4' th:value="${todoInfo.deadline}">
                 <div class="form-group">
                     <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
@@ -70,6 +85,7 @@
 <script src="/js/cheatsheet.js"></script>
 <script type="text/javascript">
     $(function () {
-        $('#datetimepicker1').datetimepicker({ format: 'L'});}); </script>
+        $('#datetimepicker1').datetimepicker({ format: 'L'});
+        $('#datetimepicker2').datetimepicker({ format: 'L'});}); </script>
 </body>
 </html>

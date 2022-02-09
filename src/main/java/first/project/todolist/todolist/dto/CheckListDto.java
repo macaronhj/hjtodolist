@@ -31,5 +31,6 @@ public class CheckListDto {
     private Long seq;
     private String todo;
     private Date create;
+    private String startdate;
     private String deadline;
 }
