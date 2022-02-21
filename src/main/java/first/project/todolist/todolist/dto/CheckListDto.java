@@ -33,4 +33,5 @@ public class CheckListDto {
     private Date create;
     private String startdate;
     private String deadline;
+    private Long memberSeq;
 }

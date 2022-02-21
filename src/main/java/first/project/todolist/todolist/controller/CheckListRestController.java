@@ -28,7 +28,6 @@ public class CheckListRestController {
     }
     /**
      * 체크리스트 삭제 요청
-     * @param mv mv
      * @param seq seq
      * @return ModelAndView
      */
@@ -41,7 +40,6 @@ public class CheckListRestController {
      * 체크리스트 수정  ( DTO 로 요청 받는 경우 )
      * 현재는 postman 과같은 툴을 이용해서만 테스트 가능
      * @param checkListDto checkListDto
-     * @param mv mv
      * @return ModelAndView
      */
     @PostMapping(value = "/update")

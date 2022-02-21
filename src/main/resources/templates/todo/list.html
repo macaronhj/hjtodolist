@@ -27,24 +27,41 @@
         $(".goModifyPage").on("click", function () {
             $(location).attr("href", "/checkList/request/page");
         });
+        //게시글 수정 페이지 이동
+        $(".updateBoarder").on("click", function () {
+            $(location).attr("href", "/checkList/update?seq=" + $(this).data("value"));
+        });
+
+        //게시글 삭제 처리
+        $(".deleteBoarder").on("click", function () {
+            // 아래는 비동기 처리
+            $.post("/checkList/delete", {seq: $(this).data("value")}, function (data) {
+                alert(data);
+                $(location).attr("href", "/checkList/list");
+            });
+        });
     });
 
 </script>
 <body>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
     <div class="list-group" th:each="list : ${todoList}">
-        <label class="list-group-item d-flex gap-3">
+        <label class="list-group-item gap-3">
             <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
             <span class="pt-1 form-checked-content">
       <strong th:text="${list.todo}"></strong>
-<!--      <small class="d-block text-muted" th:text="시작일"></small>-->
-      <small class="d-block text-muted" th:text="${list.startdate}">
+<!--      <small style="padding-right: 50%;" class="d-block text-muted" th:text="시작일:"></small>-->
+      <small style="padding-right: 50%;" class="d-block text-muted"  th:text="${list.startdate}">
         <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
       </small>
-<!--      <small class="d-block text-muted" th:text="기한"></small>-->
-      <small class="d-block text-muted" th:text="${list.deadline}">
+<!--      <small style="padding-right: 50%;" class="d-block text-muted" th:text="기한:"></small>-->
+      <small style="padding-right: 50%;" class="d-block text-muted" th:text="${list.deadline}">
         <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
       </small>
+    </span>
+    <span style="margin-left: 70%; margin-top: 3.5%;">
+        <button class="btn btn-outline-success updateBoarder" type="button" th:data-value="${list.seq}">수정</button>
+        <button class="btn btn-outline-success deleteBoarder" type="button" th:data-value="${list.seq}">삭제</button>
     </span>
         </label>
     </div>

@@ -21,7 +21,7 @@ public interface CheckListMapper {
     @Select("SELECT * FROM todolist")
     List<CheckListDto> findAll();
 
-    @Insert("INSERT INTO todolist VALUES (seq.NEXTVAL,#{todo},now(),#{startdate},#{deadline})")
+    @Insert("INSERT INTO todolist(seq, todo, create, startdate, deadline) VALUES (seq.NEXTVAL,#{todo},now(),#{startdate},#{deadline})")
     int registerRequest(CheckListDto checkListDto);
 
     @Delete("DELETE FROM todolist WHERE seq = #{seq}")
