@@ -23,10 +23,6 @@
             $(location).attr("href", "/");
         });
 
-        //게시글 삭제 처리
-        $(".goModifyPage").on("click", function () {
-            $(location).attr("href", "/checkList/request/page");
-        });
         //게시글 수정 페이지 이동
         $(".updateBoarder").on("click", function () {
             $(location).attr("href", "/checkList/update?seq=" + $(this).data("value"));
@@ -66,7 +62,6 @@
         </label>
     </div>
 <button class="btn btn-success goRequestPage" type="button">ToDoList 쓰러가기</button>
-<button class="btn btn-success goModifyPage" type="button">수정페이지로 가기</button>
 <button class="btn btn-success goFirstPage" type="button">처음 페이지로 돌아가기</button>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>

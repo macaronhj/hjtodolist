@@ -6,15 +6,15 @@ function invalid(){
     let check = true;
     let toDoValid = true;
 
-    //한글 영문 숫자 띄어쓰기 가능
-    const regToDo = /^[가-힣a-zA-Z0-9\s]+$/;
+    //한글을 포함한 영문과 특수문자 띄어쓰기 가능
+    const regToDo = /[^?a-zA-Z0-9/]/;
 
     //'할 일' 형식 확인
-    if (regToDo.test($("#todo").val()) === false) {
+    if (regToDo.test($("#todo").val()) == false) {
         console.log(1);
         $("#todo").addClass('is-invalid');
         $("#todo").removeClass('is-valid');
-        $(".valid-feedback").text("문자, 숫자, 영어만 입력하세요.");
+        $(".vaild-check").text("한글포함 특수문자와 공백을 입력해주세요.");
 
         toDoValid = false;
     }
@@ -23,7 +23,7 @@ function invalid(){
         console.log(2);
         $("#todo").addClass('is-invalid');
         $("#todo").removeClass('is-valid');
-        $(".valid-feedback").text("입력 바랍니다.");
+        $(".vaild-check").text("입력 바랍니다.");
         toDoValid = false;
     }
     //할 일 유효성 통과시 유효성 success 처리

@@ -41,10 +41,10 @@ public class CheckListService {
      * @return List<checkListDto>
      */
     public String registerRequest(CheckListDto checkListDto){
-        String registerResult = "failed to register the todolist!";
+        String registerResult = "리스트 등록 실패";
         try{
             if(checkListMapper.registerRequest(checkListDto)>0){
-                registerResult ="success to register the todolist!";
+                registerResult ="리스트 등록 성공";
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -83,10 +83,10 @@ public class CheckListService {
      */
     public String doUpdate(CheckListDto checkListDto){
         int result = checkListMapper.doUpdate(checkListDto);
-        String updateRegister = "failed to update the todolist!";
+        String updateRegister = "리스트 수정 실패";
         try {
             if (result > 0) {
-                updateRegister = "success to update the todolist";
+                updateRegister = "리스트 수정 성공";
             }
         }catch(Exception e){
             e.printStackTrace();
