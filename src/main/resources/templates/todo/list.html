@@ -45,17 +45,19 @@
         <label class="list-group-item gap-3">
             <input class="form-check-input flex-shrink-0" type="checkbox" value="" style="font-size: 1.375em;">
             <span class="pt-1 form-checked-content">
-      <strong th:text="${list.todo}"></strong>
-<!--      <small style="padding-right: 50%;" class="d-block text-muted" th:text="시작일:"></small>-->
-      <small style="padding-right: 50%;" class="d-block text-muted"  th:text="${list.startdate}">
+      <strong th:text="${list.category}"></strong><br/>
+      <small style="padding-right: 0%; display: contents;" class="text-muted" th:text="${list.todo}"></small><br/>
+      <small style="padding-right: 0%; display: contents;" class="text-muted" th:text="시작일- "></small>
+      <small style="padding-right: 0%; display: contents;" class="text-muted"  th:text="${list.startdate}">
         <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
       </small>
-<!--      <small style="padding-right: 50%;" class="d-block text-muted" th:text="기한:"></small>-->
-      <small style="padding-right: 50%;" class="d-block text-muted" th:text="${list.deadline}">
+      <br/>
+      <small style="padding-right: 50%; display: contents;" class="text-muted" th:text="기한- "></small>
+      <small style="padding-right: 50%; display: contents;" class="text-muted" th:text="${list.deadline}">
         <svg class="bi me-1" width="1em" height="1em"><use xlink:href="#calendar-event"/></svg>
       </small>
     </span>
-    <span style="margin-left: 70%; margin-top: 3.5%;">
+    <span style="margin-left: 43%; margin-top: 3.5%;">
         <button class="btn btn-outline-success updateBoarder" type="button" th:data-value="${list.seq}">수정</button>
         <button class="btn btn-outline-success deleteBoarder" type="button" th:data-value="${list.seq}">삭제</button>
     </span>

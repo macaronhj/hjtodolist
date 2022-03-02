@@ -29,6 +29,7 @@ public class CheckListDto {
      */
 
     private Long seq;
+    private String category;
     private String todo;
     private Date create;
     private String startdate;

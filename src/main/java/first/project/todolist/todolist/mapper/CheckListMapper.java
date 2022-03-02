@@ -21,7 +21,7 @@ public interface CheckListMapper {
     @Select("SELECT * FROM todolist")
     List<CheckListDto> findAll();
 
-    @Insert("INSERT INTO todolist(seq, todo, create, startdate, deadline) VALUES (seq.NEXTVAL,#{todo},now(),#{startdate},#{deadline})")
+    @Insert("INSERT INTO todolist(seq,category, todo, create, startdate, deadline) VALUES (seq.NEXTVAL,#{category},#{todo},now(),#{startdate},#{deadline})")
     int registerRequest(CheckListDto checkListDto);
 
     @Delete("DELETE FROM todolist WHERE seq = #{seq}")
@@ -30,6 +30,6 @@ public interface CheckListMapper {
     @Select("SELECT * FROM todolist WHERE seq = #{seq}")
     CheckListDto updatePage(Long seq);
 
-    @Update("UPDATE todolist SET todo=#{todo}, deadline=#{deadline} WHERE seq = #{seq}")
+    @Update("UPDATE todolist SET category=#{category}, todo=#{todo}, deadline=#{deadline} WHERE seq = #{seq}")
     int doUpdate(CheckListDto checkListDto);
 }
