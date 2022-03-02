@@ -11,6 +11,8 @@
 
     <!-- Custom styles for this template -->
     <link href="/css/cheatsheet.css" rel="stylesheet">
+    <link href="/css/headers.css" rel="stylesheet">
+    <link href="/css/footers.css" rel="stylesheet">
 
     <!-- DataTimePicker template -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -41,18 +43,46 @@
     });
 </script>
 <body>
+<header class="d-flex flex-wrap align-items-center justify-content-center mb-4 border-bottom py-3">
+    <img th:src="@{/img/logo2.png}" width="3%">
+    <a href="/" class="d-flex align-items-center mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="220" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+        <li><a href="/checkList/list" class="nav-link px-2 link-dark">List-up</a></li>
+        <li><a href="/checkList/register" class="nav-link px-2 link-dark">Register</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">FAQs</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark">About</a></li>
+    </ul>
+
+    <div class="text-end" style="width: 20%">
+        <button type="button" class="btn btn-outline-success me-2">Login</button>
+        <button type="button" class="btn btn-success">Sign-up</button>
+    </div>
+</header>
 <h1 th:align="center">[Heejin's ToDoList]</h1>
 <br>
 <div th:align="center">
     <form name="doUpdate">
         <input type="hidden" name="seq" th:value="${todoInfo.seq}">
-        <label class="form-label">TODO</label>
-        <input th:align="center" type="text" class="form-control is-valid todo" name="todo" id="todo" onkeyup="invalid()" th:value="${todoInfo.todo}" style="width: 500px" required>
+        <label class="form-label">Category</label>
+        <input th:align="center" type="text" class="form-control is-valid category" name="category" id="category" onkeyup="invalid()" th:value="${todoInfo.category}" style="width: 500px" required>
+        <div class="valid-feedback">
+            Please wirte Category.
+        </div>
         <div class="valid-feedback vaild-check">
             한글을 포함한 영문과 특수문자 입력 가능합니다.
         </div>
+        <br/>
+        <label class="form-label">TODO</label>
+        <input th:align="center" type="text" class="form-control is-valid todo" name="todo" id="todo" onkeyup="invalid()" th:value="${todoInfo.todo}" style="width: 500px" required>
         <div class="valid-feedback">
             Please wirte ToDoList.
+        </div>
+        <div class="valid-feedback vaild-check">
+            한글을 포함한 영문과 특수문자 입력 가능합니다.
         </div>
         <br/>
         <div>
@@ -88,6 +118,9 @@
                 </div>
                 </div>
             </div>
+        <p class="valid-feedback" th:align="center">
+            Please select the deadline.
+        </p>
         </form>
     </div>
 
@@ -100,6 +133,18 @@
             <button class="btn btn-outline-success" id="doModify" type="button">Modify!</button>
         </div>
     </form>
+</div>
+<div class="container">
+    <footer class="my-4" style="padding-top: 4rem; padding-bottom: 1rem;">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+        </ul>
+        <p class="text-center text-muted">&copy; 2021 Company, Inc</p>
+    </footer>
 </div>
 <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/js/cheatsheet.js"></script>
