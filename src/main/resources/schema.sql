@@ -17,8 +17,8 @@ CREATE TABLE todolist(
 CREATE SEQUENCE seq INCREMENT by 1 start with 1 nocache;
 CREATE SEQUENCE memberSeq INCREMENT by 1 start with 1 nocache;
 
-INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'heejin','heejin249@naver.com','1111');
-INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'hanyoung','hanyoung123@naver.com','2222');
+INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'heejin249@naver.com','heejin','1111');
+INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'hanyoung123@naver.com','hanyoung','2222');
 
 INSERT INTO todolist VALUES(seq.NEXTVAL,'집 청소','화장실 청소하기',now(),'01/01/2022','01/01/2022',1);
 INSERT INTO todolist VALUES(seq.NEXTVAL,'공부','백준 코테 하기',now(),'01/01/2022','01/01/2022',1);

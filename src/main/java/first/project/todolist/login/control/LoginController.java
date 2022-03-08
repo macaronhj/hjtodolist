@@ -1,6 +1,5 @@
 package first.project.todolist.login.control;
 
-import first.project.todolist.login.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -15,10 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
     //private final LoginService loginService;
 
-    @GetMapping(value="/requestLogin")
+    @GetMapping(value="/loginPage")
     public ModelAndView requestLogin(ModelAndView mv){
         log.info("Logincontroller -> requestLogin 로그인 시도 요청");
-        mv.setViewName("/login/requestLogin");
+        mv.setViewName("login/loginPage");
         return mv;
     }
 }
