@@ -2,6 +2,7 @@ package first.project.todolist.login.mapper;
 
 import first.project.todolist.login.dto.MemberDto;
 import first.project.todolist.todolist.dto.CheckListDto;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -14,4 +15,7 @@ public interface LoginMapper {
 
     @Select("select * from member where memail=#{memail}")
     MemberDto getUser(String memail);
+
+    @Insert("insert into member values(memberSeq.nextval, #{memail}, #{mname}, #{mpwd},#{mcallnum})")
+    int addUser(MemberDto memberDto);
 }

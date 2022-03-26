@@ -16,7 +16,13 @@ public class LoginController {
     @GetMapping(value="/loginPage")
     public ModelAndView requestLogin(ModelAndView mv){
         log.info("Logincontroller -> requestLogin 로그인 시도 요청");
-        mv.setViewName("login/loginPage");
+        mv.setViewName("/login/loginPage");
+        return mv;
+    }
+    @GetMapping(value="/joinPage")
+    public ModelAndView requestJoin(ModelAndView mv){
+        log.info("Logincontroller -> requestJoin 회원가입 시도 요청");
+        mv.setViewName("/login/joinPage");
         return mv;
     }
 }

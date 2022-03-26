@@ -31,6 +31,13 @@
             color: #dc3545;
         }
     </style>
+    <script>
+        $(document).ready(function () {
+            $(".goJoinPage").on("click", function () {
+                $(location).attr("href", "/Login/joinPage");
+            });
+        });
+    </script>
 </head>
 <body class="text-center">
 
@@ -53,9 +60,7 @@
         </div>
 
         <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
+            <a class="btn btn-sm btn-outline-secondary goJoinPage">회원가입하러 가기</a>
         </div>
         <button class="w-100 btn btn-lg btn-primary requestLogin" type="submit">Login</button>
         <p class="mt-5 mb-3 text-muted">ToDoList</p>

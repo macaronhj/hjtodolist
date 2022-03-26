@@ -101,5 +101,25 @@ public class LoginRestController {
             }
             return mv;
         }
+    @PostMapping("join.do")
+    public ModelAndView join(@RequestParam String mname, String memail, String mpwd, int mcallnum) {
 
+        MemberDto memberDto = loginMapper.getUser(memail);
+        ModelAndView mav = new ModelAndView();
+        if(memberDto == null)
+        {
+            loginService.addUser(new MemberDto((long) -1, memail, mname, mpwd , mcallnum));
+            mav.setViewName("login/loginPage");
+            mav.addObject("msg","success");
+            log.info("ddd");
+            return mav;
+        }
+        else
+        {
+            mav.setViewName("login/joinPage");
+            mav.addObject("msg","fail");
+            log.info("cccc");
+            return mav;
+        }
+    }
 }

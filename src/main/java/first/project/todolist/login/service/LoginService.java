@@ -40,5 +40,8 @@ public class LoginService {
         else
             return EX_ID;
     }
-
+    public int addUser(MemberDto memberDto){
+        int result = loginMapper.addUser(memberDto);
+        return result;
+    }
 }
