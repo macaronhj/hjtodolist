@@ -40,14 +40,14 @@
 <!--        <div th:if="${#fields.hasGlobalErrors()}">-->
 <!--            <p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>-->
 <!--        </div>-->
-        <form action="item.html" th:action="@{/Login/login}" th:object="${loginForm}" method="post">
+        <form th:action="@{/Login/login}" method="post">
         <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInput" name="email">
+            <input type="text" class="form-control" id="floatingInput" name="memail">
             <label for="floatingInput">이메일을 입력해주세요.</label>
 <!--        <div class="field-error" th:errors="*{email}" />-->
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="pwd">
+            <input type="password" class="form-control" id="floatingPassword" name="mpwd">
             <label for="floatingPassword">비밀번호를 입력해주세요.</label>
 <!--            <div class="field-error" th:errors="*{pwd}" />-->
         </div>

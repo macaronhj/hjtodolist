@@ -1,8 +1,9 @@
 CREATE TABLE MEMBER (
     memberSeq number(10) CONSTRAINT ms_code_pk PRIMARY KEY,
-    email VARCHAR2(80) NOT NULL, /* 이메일 */
-    name VARCHAR2(50) NOT NULL, /* 이름 */
-    pwd VARCHAR2(30) NOT NULL /* 비밀번호 */
+    memail VARCHAR2(80) NOT NULL, /* 이메일 */
+    mname VARCHAR2(50) NOT NULL, /* 이름 */
+    mpwd VARCHAR2(30) NOT NULL, /* 비밀번호 */
+    mcallnum NUMBER NOT NULL /* 전화번호 */
 );
 CREATE TABLE todolist(
       seq number(10) CONSTRAINT s_code_pk PRIMARY KEY,
@@ -17,8 +18,8 @@ CREATE TABLE todolist(
 CREATE SEQUENCE seq INCREMENT by 1 start with 1 nocache;
 CREATE SEQUENCE memberSeq INCREMENT by 1 start with 1 nocache;
 
-INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'heejin249@naver.com','heejin','1111');
-INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'hanyoung123@naver.com','hanyoung','2222');
+INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'heejin249@naver.com','heejin','1111', 01050147899);
+INSERT INTO MEMBER VALUES(memberSeq.NEXTVAL,'hanyoung123@naver.com','hanyoung','2222',01012345678);
 
 INSERT INTO todolist VALUES(seq.NEXTVAL,'집 청소','화장실 청소하기',now(),'01/01/2022','01/01/2022',1);
 INSERT INTO todolist VALUES(seq.NEXTVAL,'공부','백준 코테 하기',now(),'01/01/2022','01/01/2022',1);

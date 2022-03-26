@@ -12,7 +12,6 @@ import org.springframework.web.servlet.ModelAndView;
 @RequiredArgsConstructor
 @RequestMapping("/Login")
 public class LoginController {
-    //private final LoginService loginService;
 
     @GetMapping(value="/loginPage")
     public ModelAndView requestLogin(ModelAndView mv){

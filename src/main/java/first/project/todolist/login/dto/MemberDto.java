@@ -7,7 +7,8 @@ import lombok.Setter;
 @Setter
 public class MemberDto {
     private Long memberSeq;
-    private String email;
-    private String name;
-    private String pwd;
+    private String memail;
+    private String mname;
+    private String mpwd;
+    private int mcallnum;
     }
